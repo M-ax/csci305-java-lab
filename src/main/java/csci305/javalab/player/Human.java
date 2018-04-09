@@ -14,15 +14,15 @@ public class Human extends Player {
     @Override
     public Element play(Player opponent){
         for (int i = 0; i < Element.ELEMENTS.length; i++){
-            System.out.printf("%d : %s", i, Element.ELEMENTS[i].getName());
+            System.out.printf("%d : %s%n", i + 1, Element.ELEMENTS[i].getName());
         }
 
         int move = -1;
-        while (move < 0 || move >= Element.ELEMENTS.length){
+        while (move <= 0 || move > Element.ELEMENTS.length){
             System.out.print("Enter your move: ");
             move = inScan.nextInt();
         }
 
-        return lastPlayInternal = Element.ELEMENTS[move];
+        return lastPlayInternal = Element.ELEMENTS[move - 1];
     }
 }
