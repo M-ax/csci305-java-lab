@@ -6,17 +6,15 @@ public class Outcome {
     //Ex: Paper covers Rock
     private String description;
 
-
-    public Outcome(Element elem1, Element elem2){
-
+    public Outcome(String result, String description){
+        this.result = result;
+        this.description = description;
     }
 
     public String getResult(){
         return result;
     }
-
     public String getDescription(){
         return description;
     }
-
 }
