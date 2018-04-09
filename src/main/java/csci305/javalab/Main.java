@@ -13,33 +13,42 @@ public class Main {
     public static void main(String[] args){
         System.out.println("Welcome to Rock, Paper, Scissors, Lizard, Spock, implemented by Max Weimer.");
 
+        //Print out player selection list
         System.out.println("Please choose two players: ");
         for (int i = 0; i < playerNames.length; i++){
             System.out.printf("\t%d : %s%n", i + 1, playerNames[i]);
         }
 
+        //Prompt user for each player
         Player player1 = promptForPlayer("Select Player 1: ");
         Player player2 = promptForPlayer("Select Player 2: ");
 
+        //Play the game with the chosen players
         playRounds(player1, player2);
     }
 
     private static void playRounds(Player player1, Player player2){
         System.out.printf("%s vs %s.  Go!%n%n", player1.getName(), player2.getName());
 
+        //Keep track of each user's score.
         int p1Score = 0;
         int p2Score = 0;
         for (int i = 1; i <= 5; i++){
             System.out.printf("Round %d:%n", i);
 
+            //Get each players move
             Element p1Elem = player1.play(player2);
             Element p2Elem = player2.play(player1);
 
+            //Print each move to the user
             System.out.printf("\tPlayer 1 chose %s%n", p1Elem.getName());
             System.out.printf("\tPlayer 2 chose %s%n", p2Elem.getName());
 
+            //Get the outcome of the round
             Outcome outcome = p1Elem.compareTo(p2Elem);
+            //Print outcome to user
             System.out.printf("\t%s%n", outcome.getDescription());
+            //Determine who to gets the points, print result to console
             switch (outcome.getResult()){
                 case "Win":
                     System.out.println("Player 1 wins the round");
@@ -58,10 +67,12 @@ public class Main {
             player1.endRound();
             player2.endRound();
 
+            //Padding between rounds.
             System.out.println();
             System.out.println();
         }
 
+        //Print post-game recap
         System.out.printf("Score is %d to %d.%n", p1Score, p2Score);
         if (p1Score > p2Score){
             System.out.printf("Player 1 (%s) wins the game%n", player1.getName());

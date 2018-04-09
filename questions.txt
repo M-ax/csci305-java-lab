@@ -1,0 +1,26 @@
+1. To implement the last play feature, I added the instance variables lastPlay and lastPlayInternal to the Player
+    abstract class.  When the play function is called, the lastPlayInternal variable gets assigned.  This is not
+    accessible from outside the class, however, as when the round is happening, whichever player goes first would
+    have their move exposed to the second player.  I combated this by adding another function, endRound(), that
+    assigns the value of lastPlayInternal to lastPlay, which can then be seen by other classes using the getLastPlay()
+    function.  This allows the opponent to see the move only on the next turn.
+
+2. My bot works in much the same way as the LastPlayBot, but it instead chooses what would have beaten the opponent's
+    last move, i.e. if the opponent played Rock last round, my bot will play Spock.  To implement this I used a switch
+    statement in the play method that chooses a move that will beat the opponent's last.
+
+3.
+
+4.
+
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+10.
