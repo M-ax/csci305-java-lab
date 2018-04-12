@@ -4,6 +4,8 @@ import csci305.javalab.element.Element;
 
 public abstract class Player {
     private String name;
+    //Keep track of what move play() generated last.
+    //lastPlay only assigned after endRound() is called.
     protected Element lastPlayInternal;
     protected Element lastPlay;
 

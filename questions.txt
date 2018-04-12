@@ -3,24 +3,39 @@
     accessible from outside the class, however, as when the round is happening, whichever player goes first would
     have their move exposed to the second player.  I combated this by adding another function, endRound(), that
     assigns the value of lastPlayInternal to lastPlay, which can then be seen by other classes using the getLastPlay()
-    function.  This allows the opponent to see the move only on the next turn.
+    function.  This allows the opponent to see the move only on the next turn, as if lastPlay was assigned when play()
+    is called, the opponent will be able to see, because the move choices aren't executed in parallel like they are in
+    a real life game.
 
 2. My bot works in much the same way as the LastPlayBot, but it instead chooses what would have beaten the opponent's
     last move, i.e. if the opponent played Rock last round, my bot will play Spock.  To implement this I used a switch
     statement in the play method that chooses a move that will beat the opponent's last.
 
-3.
+3. The type system in Java is like most other C-family languages.  Object types are bound at compile-time, as Java is
+    statically typed.  Typing in Java is relatively weak, as types can be coerced and cast quite easily and on-the-fly.
+    I.E. adding a long and an int, the int is implicitly casted to a long, and the long + long operator is used. User
+    created classes have most of the comforts of included types, one downside though is operators cannot be overridden,
+    so methods must be used to achieve the same effect.  But this can lead to another issue, which is methods with
+    parameter polymorphism have their overloaded method determined at compile-time, so accessing the overridden method
+    in a child class can be difficult.
 
-4.
+4. StupidBot is obviously pretty dumb, and loses a lot, but notably does okay against the LastPlayBot, as LastPlayBot
+    just emulates the StupidBot's behavior.  The bot I created performs quite well against both of the aforementioned
+    bots, as it chooses what would've beat the opponent's last move.  As the human player, I can do quite well against
+    most of the bots, though obviously against RandomBot it's a complete toss up.
 
-5.
+5. You can design strategies that are more likely to succeed, but only with respect to their opponent.  For example
+    designing a bot do defeat the StupidBot is trivial, one need only play paper every round.  But creating a bot that
+    is universally successful is impossible, as there is no guaranteed way to defeat the RandomBot every time, as every
+    possible move has exactly 2 moves that it beats, and 2 moves that it loses to.
 
-6.
+6. I like it's inherent cross-platform friendliness.
 
-7.
+7. I dislike that it lacks modern language features, like native getter/setters, a var keyword, creature comforts that
+    C# has had since it was created.
 
-8.
+8. I enjoyed this lab.  I liked how much freedom was given in terms of implementation choices.
 
-9.
+9. 3 hours
 
-10.
+10. I've used Java off-and-on for about 5 years now.

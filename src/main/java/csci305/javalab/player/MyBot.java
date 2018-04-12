@@ -11,8 +11,8 @@ public class MyBot extends Player {
     public Element play(Player opponent){
         Element opLastPlay = opponent.getLastPlay();
 
-        //Chose a move that will beat the opponents last move
         if (opLastPlay != null){
+            //Chose a move that will beat the opponents last move
             if (opLastPlay instanceof Rock)
                 return lastPlayInternal = Element.SPOCK;
             if (opLastPlay instanceof Paper)
@@ -25,6 +25,7 @@ public class MyBot extends Player {
                 return lastPlayInternal = Element.PAPER;
         }
 
+        //Default to rock as first move if opponent has no lastPlay
         return lastPlayInternal = Element.ROCK;
     }
 }

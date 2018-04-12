@@ -1,6 +1,8 @@
 package csci305.javalab.element;
 
 public abstract class Element {
+    // ""singleton"" Elements, only one of each is needed in memory to get the job done.
+    //Avoid crapping out unnecessary Element objects all over memory
     public static Element ROCK = new Rock("Rock");
     public static Element PAPER = new Paper("Paper");
     public static Element SCISSORS = new Scissors("Scissors");
